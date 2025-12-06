@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.jhonatapers'
+version = '1.0-SNAPSHOT'
+
+dependencies {
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.14.1'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.20.0'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.14.1'
+
+}
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
