@@ -1,0 +1,65 @@
+plugins {
+    id 'java-library'
+    id 'com.vanniktech.maven.publish' version '0.35.0'
+}
+
+group = 'com.jhonatapers'
+version = '0.0.1'
+
+dependencies {
+
+    implementation 'org.aspectj:aspectjrt:1.9.25'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.14.1'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.20.0'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.14.1'
+
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+mavenPublishing {
+  publishToMavenCentral()
+  signAllPublications()
+}
+
+mavenPublishing {
+  coordinates("com.jhonatapers", "aop", "0.0.1")
+
+  pom {
+    name = "Aspect-Oriented Programming Library"
+    description = "A library for Aspect-Oriented Programming (AOP) in Java applications."
+    inceptionYear = "2025"
+    url = "https://github.com/jhonatapers/aop/"
+    licenses {
+      license {
+        name = "MIT License"
+        url = "https://opensource.org/licenses/MIT"
+      }
+    }
+    developers {
+      developer {
+        id = "jhonatapers"
+        name = "Jhonata Peres"
+        url = "https://github.com/jhonatapers/"
+      }
+    }
+    scm {
+      url = "https://github.com/jhonatapers/aop/"
+      connection = "scm:git:git://github.com/jhonatapers/aop.git"
+      developerConnection = "scm:git:ssh://git@github.com/jhonatapers/aop.git"
+    }
+  }
+}
